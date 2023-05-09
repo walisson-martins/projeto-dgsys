@@ -1,0 +1,9 @@
+@import "src/assets/variables";
+
+::ng-deep {
+    .container-menu {
+        .p-menubar {
+            background-color: $primary-color;
+        }
+    }
+}

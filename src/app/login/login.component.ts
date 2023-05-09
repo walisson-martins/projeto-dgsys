@@ -1,15 +1,33 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
+  email: string = '';
+  password: string = '';
+  error: string = '';
+  submenus: any[];
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private auth: AngularFireAuth) {
+    this.submenus = [
+      {
+        label: 'File',
+      },
+    ];
   }
 
+  login() {
+    this.auth
+      .signInWithEmailAndPassword(this.email, this.password)
+      .then(() => {
+        alert('sucesso');
+      })
+      .catch((error) => {
+        this.error = error.message;
+      });
+  }
 }
