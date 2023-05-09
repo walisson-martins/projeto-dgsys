@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ListaProdutosComponent } from './lista-produtos/lista-produtos.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { firebaseConfig } from 'src/environments/environment.firebase';
@@ -13,9 +14,10 @@ import { firebaseConfig } from 'src/environments/environment.firebase';
 //PrimeNG
 import { ButtonModule } from 'primeng/button';
 import { MenubarModule } from 'primeng/menubar';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
+  declarations: [AppComponent, LoginComponent, ListaProdutosComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -25,6 +27,7 @@ import { MenubarModule } from 'primeng/menubar';
     AngularFireAuthModule,
     ButtonModule,
     MenubarModule,
+    TableModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

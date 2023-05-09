@@ -12,19 +12,14 @@ export class LoginComponent {
   error: string = '';
   submenus: any[];
 
-  constructor(private auth: AngularFireAuth) {
-    this.submenus = [
-      {
-        label: 'File',
-      },
-    ];
-  }
+  constructor(private auth: AngularFireAuth, private router: Router) {}
 
   login() {
     this.auth
       .signInWithEmailAndPassword(this.email, this.password)
       .then(() => {
         alert('sucesso');
+        this.router.navigate(['lista-produtos']);
       })
       .catch((error) => {
         this.error = error.message;
