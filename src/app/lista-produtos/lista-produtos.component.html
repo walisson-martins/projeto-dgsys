@@ -1,3 +1,28 @@
+<div class="p-d-flex p-jc-center">
+  <div class="card">
+    <h1 class="p-mt-3">Cadastro de Produto</h1>
+    <form [formGroup]="produtoForm" class="p-fluid">
+      <div class="p-field">
+        <label for="nome">Nome</label>
+        <input id="nome" type="text" pInputText formControlName="nome" class="p-mt-2" />
+        <small class="p-error" *ngIf="produtoForm.get('nome').invalid && produtoForm.get('nome').touched">
+          Nome é obrigatório
+        </small>
+      </div>
+      <div class="p-field">
+        <label for="preco">Preço</label>
+        <input id="preco" type="text" pInputText formControlName="preco" class="p-mt-2" />
+        <small class="p-error" *ngIf="produtoForm.get('preco').invalid && produtoForm.get('preco').touched">
+          Preço é obrigatório
+        </small>
+      </div>
+      <button type="button" pButton (click)="cadastrarProduto()" label="Cadastrar"
+        class="p-mt-3 p-button-success"></button>
+    </form>
+  </div>
+</div>
+
+
 <p-table [value]="produtos">
   <ng-template pTemplate="header">
     <tr>
