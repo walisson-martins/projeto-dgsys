@@ -18,6 +18,7 @@ import { MenubarModule } from 'primeng/menubar';
 import { TableModule } from 'primeng/table';
 import { ListaProdutosComponent } from './lista-produtos/lista-produtos.component';
 import { InputTextModule } from 'primeng/inputtext';
+
 @NgModule({
   declarations: [AppComponent, LoginComponent, ListaProdutosComponent],
   imports: [

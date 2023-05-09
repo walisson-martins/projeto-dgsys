@@ -1,7 +1,48 @@
+@import "src/assets/variables";
+
 .table-custom {
-  background-color: #f2f2f2;
+  background-color: $quinary-color;
 }
 
 .table-custom td {
-  color: #333;
+  color: $fourteenth-color;
+}
+
+.table {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 55px;
+}
+
+.trash {
+  background: $nonary-color;
+  border: none;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.p-button:enabled:hover {
+  background: rgb(161, 13, 16);
+  color: #ffffff;
+  border-color: none;
+}
+
+.end-position {
+  text-align: end !important;
+}
+
+.card {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  position: relative;
+  left: 35%;
+}
+
+.sucess {
+  margin-top: 20px;
 }

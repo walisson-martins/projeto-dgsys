@@ -11,29 +11,36 @@
       </div>
       <div class="p-field">
         <label for="preco">Preço</label>
-        <input id="preco" type="text" pInputText formControlName="preco" class="p-mt-2" />
+        <input id="preco" type="text" pInputText formControlName="preco" class="p-mt-2" [(ngModel)]="formattedValue"
+          (input)="formatarInput($event)" />
         <small class="p-error" *ngIf="produtoForm.get('preco').invalid && produtoForm.get('preco').touched">
           Preço é obrigatório
         </small>
       </div>
       <button type="button" pButton (click)="cadastrarProduto()" label="Cadastrar"
-        class="p-mt-3 p-button-success"></button>
+        class="p-mt-3 p-button-success sucess"></button>
     </form>
   </div>
 </div>
 
-
-<p-table [value]="produtos">
+<p-table [value]="produtos" class="table">
   <ng-template pTemplate="header">
     <tr>
       <th>Nome</th>
       <th>Preço</th>
+      <th class="end-position">Ações</th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-produto>
     <tr>
       <td>{{produto.nome}}</td>
-      <td>{{produto.preco}}</td>
+      <td>{{produto.preco }}</td>
+      <td>
+        <button class="trash" pButton type="button" label="Excluir" icon="pi pi-times"
+          (click)="removeProduto(produto.id)"></button>
+        <button class="edit" pButton type="button" label="Editar" icon="pi pi-pencil"
+          (click)="editarProduto(produto)"></button>
+      </td>
     </tr>
   </ng-template>
 </p-table>
