@@ -10,7 +10,6 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
   error: string = '';
-  submenus: any[];
 
   constructor(private auth: AngularFireAuth, private router: Router) {}
 
