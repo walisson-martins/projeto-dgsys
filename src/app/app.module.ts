@@ -15,6 +15,7 @@ import { firebaseConfig } from 'src/environments/environment.firebase';
 import { ButtonModule } from 'primeng/button';
 import { MenubarModule } from 'primeng/menubar';
 import { TableModule } from 'primeng/table';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, ListaProdutosComponent],
@@ -28,6 +29,7 @@ import { TableModule } from 'primeng/table';
     ButtonModule,
     MenubarModule,
     TableModule,
+    ScrollingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
