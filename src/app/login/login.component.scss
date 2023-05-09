@@ -4,6 +4,45 @@
     .container-menu {
         .p-menubar {
             background-color: $primary-color;
+
+            height: 48px;
         }
     }
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error {
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+    color: rgb(225, 18, 21);
+    margin-left: 130px;
+}
+
+.container-menu-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.container-padding {
+    padding: 14px;
+}
+
+.btn-login {
+    width: 410px;
+    position: relative;
+    left: 66px;
+}
+
+.input-password,
+.input-email {
+    width: 150%;
 }

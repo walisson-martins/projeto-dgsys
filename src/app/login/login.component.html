@@ -1,18 +1,23 @@
 <p-menubar class="container-menu">
 </p-menubar>
 
-<h1>Login</h1>
+<h1 class="centered">Login</h1>
 
 <form>
-  <div>
-    <label for="email">E-mail:</label>
-    <input type="email" id="email" [(ngModel)]="email" name="email" required>
-  </div>
-  <div>
-    <label for="password">Senha:</label>
-    <input type="password" id="password" [(ngModel)]="password" name="password" required>
-  </div>
-  <button pButton type="button" label="login" (click)="login()"></button>
+  <section class="container-menu-login">
+    <div class="p-field">
+      <label for="email" class="container-padding">E-mail:</label>
+      <input [(ngModel)]="email" name="email" type="email" aria-describedby="email-help" class="input-email" pInputText
+        required />
+    </div>
+
+    <div class="p-field">
+      <label for="password" class="container-padding">Senha:</label>
+      <input [(ngModel)]="password" name="password" type="password" aria-describedby="password-help"
+        class="input-password" pInputText required />
+    </div>
+    <button pButton type="button" label="login" (click)="login()" class="btn-login"></button>
+  </section>
 </form>
 
-<p *ngIf="error">{{ error }}</p>
+<p *ngIf="error" class="error">{{ error }}</p>

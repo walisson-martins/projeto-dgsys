@@ -13,12 +13,15 @@ export class LoginComponent {
 
   constructor(private auth: AngularFireAuth, private router: Router) {}
 
+  redirectToProdutos() {
+    this.router.navigate(['/lista-produtos']);
+  }
+
   login() {
     this.auth
       .signInWithEmailAndPassword(this.email, this.password)
       .then(() => {
-        alert('sucesso');
-        this.router.navigate(['lista-produtos']);
+        this.redirectToProdutos();
       })
       .catch((error) => {
         this.error = error.message;
