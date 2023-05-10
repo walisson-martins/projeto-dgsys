@@ -1,7 +1,17 @@
 @import "src/assets/variables";
 
+::ng-deep {
+  .p-datatable {
+    width: 70%;
+  }
+}
+
 .table-custom {
   background-color: $quinary-color;
+}
+
+label {
+  color: #fff;
 }
 
 .table-custom td {
@@ -26,7 +36,7 @@
 .p-button:enabled:hover {
   background: rgb(161, 13, 16);
   color: #ffffff;
-  border-color: none;
+  border-color: none !important;
 }
 
 .end-position {
@@ -34,7 +44,7 @@
 }
 
 .card {
-  width: 40%;
+  width: 32%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -45,4 +55,23 @@
 
 .sucess {
   margin-top: 20px;
+}
+
+.centered-info {
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+}
+
+.title {
+  color: #fff;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+  background-color: #ffffff;
 }

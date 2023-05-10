@@ -1,47 +1,89 @@
 @import "src/assets/variables";
+section {
+    background: linear-gradient(to bottom right, #0099ff, #0066cc);
+    background-size: cover;
+    background-position: center;
+}
 
-::ng-deep {
-    .container-menu {
-        .p-menubar {
-            background-color: $primary-color;
-            height: 48px;
-        }
-    }
+.container-menu {
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 1rem;
 }
 
 .centered {
+    text-align: center;
+    font-size: 2rem;
+    color: #fff5f5;
+    margin-top: 3rem;
+}
+
+form {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.error {
-    display: flex;
-    justify-content: center;
-    font-size: 14px;
-    color: rgb(225, 18, 21);
-    margin-left: 130px;
+    flex-direction: column;
+    margin-top: 2rem;
+    padding: 2rem;
 }
 
 .container-menu-login {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    width: 40%;
 }
 
-.container-padding {
-    padding: 14px;
+.p-field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.p-field label {
+    font-size: 1.2rem;
+    color: #fbfbfb;
+    white-space: nowrap;
+    margin-right: 10px;
+}
+
+.input-email,
+.input-password {
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .btn-login {
-    width: 410px;
+    margin-top: 2rem;
+    background-color: #444;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.2s ease-in-out;
+    width: 238px;
     position: relative;
-    left: 66px;
+    left: 30px;
 }
 
-.input-password,
-.input-email {
-    width: 150%;
+.btn-login:hover {
+    background-color: #333;
+    cursor: pointer;
+}
+
+.error {
+    color: red;
+    font-size: 1.2rem;
+    margin-top: 1rem;
 }

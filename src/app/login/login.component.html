@@ -1,23 +1,22 @@
-<p-menubar class="container-menu">
-</p-menubar>
+<section>
+  <h1 class="centered">Login</h1>
 
-<h1 class="centered">Login</h1>
+  <form>
+    <section class="container-menu-login">
+      <div class="p-field">
+        <label for="email" class="container-padding">E-mail:</label>
+        <input [(ngModel)]="email" name="email" type="email" aria-describedby="email-help" class="input-email"
+          pInputText required />
+      </div>
 
-<form>
-  <section class="container-menu-login">
-    <div class="p-field">
-      <label for="email" class="container-padding">E-mail:</label>
-      <input [(ngModel)]="email" name="email" type="email" aria-describedby="email-help" class="input-email" pInputText
-        required />
-    </div>
+      <div class="p-field">
+        <label for="password" class="container-padding">Senha:</label>
+        <input [(ngModel)]="password" name="password" type="password" aria-describedby="password-help"
+          class="input-password" pInputText required />
+      </div>
+      <button pButton type="button" label="login" (click)="login()" class="btn-login"></button>
+    </section>
+  </form>
 
-    <div class="p-field">
-      <label for="password" class="container-padding">Senha:</label>
-      <input [(ngModel)]="password" name="password" type="password" aria-describedby="password-help"
-        class="input-password" pInputText required />
-    </div>
-    <button pButton type="button" label="login" (click)="login()" class="btn-login"></button>
-  </section>
-</form>
-
-<p *ngIf="error" class="error">{{ error }}</p>
+  <p *ngIf="error" class="error">{{ error }}</p>
+</section>

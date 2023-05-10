@@ -12,9 +12,11 @@ import { v4 as uuidv4 } from 'uuid';
   providers: [MessageService, CurrencyPipe],
 })
 export class ListaProdutosComponent implements OnInit {
-  produtos: any[];
+  produtos: any;
   produtoForm: FormGroup;
   formattedValue: string;
+  produtoEditando = null;
+  isEdit = false;
 
   constructor(
     private firestore: AngularFirestore,
@@ -29,11 +31,15 @@ export class ListaProdutosComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getProdutos();
+  }
+
+  getProdutos() {
     this.firestore
       .collection('produtos')
       .valueChanges()
-      .subscribe((data) => {
-        this.produtos = data;
+      .subscribe((produtos: any[]) => {
+        this.produtos = produtos;
       });
   }
 
@@ -66,7 +72,14 @@ export class ListaProdutosComponent implements OnInit {
 
   // remove um produto pelo ID
   removeProduto(id: string) {
-    return this.firestore.collection('products').doc(id).delete();
+    return this.firestore
+      .collection('produtos')
+      .doc(id)
+      .delete()
+      .then(() => {
+        const index = this.produtos.findIndex((p) => p.id === id);
+        this.produtos.splice(index, 1);
+      });
   }
 
   formatarInput(event: any) {
@@ -81,24 +94,40 @@ export class ListaProdutosComponent implements OnInit {
   }
 
   editarProduto(produto: any) {
-    const produtoRef = this.firestore.collection('produtos').doc(produto.id);
-    produtoRef
-      .update({
-        nome: produto.nome,
-        preco: produto.preco,
-      })
-      .then(() => {
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Produto atualizado com sucesso!',
+    this.produtoForm.patchValue({
+      nome: produto.nome,
+      preco: produto.preco,
+    });
+    this.produtoEditando = produto;
+    this.isEdit = true;
+  }
+
+  alterarProduto() {
+    if (this.produtoForm.valid) {
+      const id = this.produtoEditando.id;
+      const produtoRef = this.firestore.collection('produtos').doc(id);
+      produtoRef
+        .update({
+          nome: this.produtoForm.get('nome').value,
+          preco: this.produtoForm.get('preco').value,
+        })
+        .then(() => {
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Produto atualizado com sucesso!',
+          });
+          this.produtoForm.reset();
+          this.produtoEditando = null;
+        })
+        .catch((error) => {
+          console.error('Erro ao atualizar produto:', error);
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Erro ao atualizar produto',
+          });
         });
-      })
-      .catch((error) => {
-        console.error('Erro ao atualizar produto:', error);
-        this.messageService.add({
-          severity: 'error',
-          summary: 'Erro ao atualizar produto',
-        });
-      });
+    }
+
+    this.isEdit = false;
   }
 }
